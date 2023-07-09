@@ -13,42 +13,41 @@ const DrinksProvider = ({ children }) => {
 
   const handleModalClick = () => {
     setModal(!modal);
-  }
+  };
+
   const handleDrinkIdClick = (id) => {
     setDrinkId(id);
-  }
+  };
+
   const getRecipe = async () => {
     if (!drinkId) {
-      return
+      return;
     }
     try {
       setLoading(true);
       const recipeData = await getRecipeService(drinkId);
       setRecipe(recipeData);
-
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
     }
-  }
+  };
+
   const getDrink = async (data) => {
     try {
       setLoading(true);
-
       const drinksData = await filterDrinkServices(data.name, data.category);
-  
       setDrinks(drinksData);
-
     } catch (error) {
       console.log(error);
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   useEffect(() => {
-    getRecipe()
+    getRecipe();
   }, [drinkId]);
 
   const contextValues = {
@@ -59,20 +58,21 @@ const DrinksProvider = ({ children }) => {
     handleModalClick,
     handleDrinkIdClick,
     getDrink
-
-  }
+  };
 
   return (
-    <DrinksContext value={contextValues}>
-      {children}
-    </DrinksContext>
-  )
+    <DrinksContext.Consumer>
+      {() => (
+        <DrinksContext.Provider value={contextValues}>
+          {children}
+        </DrinksContext.Provider>
+      )}
+    </DrinksContext.Consumer>
+  );
+};
 
-}
 DrinksProvider.propTypes = {
   children: PropTypes.node.isRequired
-}
-export {
-  DrinksContext,
-  DrinksProvider
-}
+};
+
+export { DrinksContext, DrinksProvider };

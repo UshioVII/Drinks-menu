@@ -1,7 +1,16 @@
+import SearchForm from "../../components/SearchForm";
+import DrinksList from "../../components/DrinksList"
+import DrinkDetailModal from "../../components/DrinkModal";
+
+
 export default function Home() {
   return (
     <div>
-      <h2>Home</h2>
+        <SearchForm/>
+        
+        <DrinksList/>
+
+        <DrinkDetailModal/>
     </div>
   )
 }
