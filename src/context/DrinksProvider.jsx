@@ -61,13 +61,9 @@ const DrinksProvider = ({ children }) => {
   };
 
   return (
-    <DrinksContext.Consumer>
-      {() => (
-        <DrinksContext.Provider value={contextValues}>
-          {children}
-        </DrinksContext.Provider>
-      )}
-    </DrinksContext.Consumer>
+    <DrinksContext.Provider value={contextValues}>
+      {children}
+    </DrinksContext.Provider>
   );
 };
 
