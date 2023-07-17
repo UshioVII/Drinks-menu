@@ -19,14 +19,22 @@ const DrinksProvider = ({ children }) => {
     setDrinkId(id);
   };
 
+  const generateRandomPrice = () => {
+    return Math.floor(Math.random() * 100) + 1;
+  };
+
   const getRecipe = async () => {
     if (!drinkId) {
       return;
     }
     try {
       setLoading(true);
-      const recipeData = await getRecipeService(drinkId);
-      setRecipe(recipeData);
+      const drinkData = await getRecipeService(drinkId);
+      const drinkWithPrice = {
+        ...drinkData,
+        price: generateRandomPrice(),
+      };
+      setRecipe(drinkWithPrice);
     } catch (error) {
       console.log(error);
     } finally {
@@ -38,7 +46,11 @@ const DrinksProvider = ({ children }) => {
     try {
       setLoading(true);
       const drinksData = await filterDrinkServices(data.name, data.category);
-      setDrinks(drinksData);
+      const drinksWithPrices = drinksData.map((drink) => ({
+        ...drink,
+        price: generateRandomPrice(),
+      }));
+      setDrinks(drinksWithPrices);
     } catch (error) {
       console.log(error);
     } finally {

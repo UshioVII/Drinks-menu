@@ -3,6 +3,7 @@ import { Formik, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useCategories } from "../../hooks/useCategories";
 import { useDrinks } from "../../hooks/useDrinks";
+import styles from "./SarchForm.module.css"
 
 
 
@@ -33,7 +34,7 @@ export default function SearchForm() {
 
       {
         (formik) => (
-          <Form onSubmit={formik.handleSubmit}>
+          <Form className={styles.formDrinks} onSubmit={formik.handleSubmit}>
             {
               formik.status && (
                 <Alert variant="danger" className="text-danger">
@@ -44,7 +45,7 @@ export default function SearchForm() {
             <Row>
               <Col md={6}>
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="name">Nombre Bebebida</Form.Label>
+                  <Form.Label htmlFor="name" className={styles.drinkName}>Nombre Bebebida</Form.Label>
 
                   <Field
                     id="name"
@@ -56,43 +57,42 @@ export default function SearchForm() {
                   <ErrorMessage
                     name="name"
                     component={Form.Text}
-                    className="text-danger"
+                    className={styles.error}
                   />
                 </Form.Group>
               </Col>
               <Col md={6}>
                 <Form.Group className="mb-3">
-                  <Form.Label htmlFor="category"> Categorias Bebidas</Form.Label>
+                  <Form.Label htmlFor="category" className={styles.drinkCategories}>Categorías Bebidas</Form.Label>
                   <Field
                     id="category"
                     name="category"
                     as={Form.Select}
                     placeholder="Seleccione una bebida."
                   >
-                    <option disabled> Selecciona Categoria</option>
-                    {
-                      categories.map((category) => (
-                        <option
-                          key={category.strCategory}
-                          value={category.strCategory}
-                        >
-                          {category.strCategory}
-                        </option>
-                      ))
-                    }
+                    <option value="" disabled>Seleccionar categoría</option>
+                    {categories.map((category) => (
+                      <option
+                        key={category.strCategory}
+                        value={category.strCategory}
+                      >
+                        {category.strCategory}
+                      </option>
+                    ))}
                   </Field>
                   <ErrorMessage
                     name="category"
                     component={Form.Text}
-                    className="text-danger"
+                    className={styles.error}
                   />
                 </Form.Group>
+
               </Col>
             </Row>
-            <Row className="justify-content-end">
+            <Row className="justify-content-end mt-3">
               <Col md="3">
                 <button
-                  className="btn btn-danger text-uppercase w-100"
+                  className="btn btn-success w-100"
                   type="submit"
                   disabled={loading}
                 >

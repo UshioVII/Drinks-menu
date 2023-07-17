@@ -1,5 +1,6 @@
 import { Row } from "react-bootstrap";
 import { useDrinks } from "../../hooks/useDrinks";
+import styles from "./DrinksList.module.css";
 import DrinkCard from "../DrinkCard";
 
 export default function DrinkList() {
@@ -7,13 +8,14 @@ export default function DrinkList() {
 
   if (drinks.length === 0) {
     return (
-      <Row className="p-5 m5">
-        <h1 className="text-center">No hay resultados</h1>
+      <Row className={styles.noResult}>
+        <h1>No hay resultados</h1>
       </Row>
     );
   }
 
   return (
+    
     <Row className="mt-5">
       {drinks.map((drink) => (
         <DrinkCard key={drink.idDrink} drink={drink} />

@@ -1,9 +1,30 @@
 .header {
-  background-color: #ec3a49;
+  background-color: #0303034b;
   color: white;
   text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
+
 .header h1 {
-  font-family: "Outfit", sans-serif;
-  font-weight: 900;
+  font-weight: 100;
 }
+
+.header h1,
+.header h3 {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40) both;
+}
+
+.header .cartIcon {
+  transition: transform 0.3s, scale 0.3s, filter 0.3s;
+}
+
+.header .cartIcon:hover {
+  transform: rotate(360deg) scale(1.2);
+  filter: brightness(1.2) saturate(1.5);
+  color: #198754;
+}
+
