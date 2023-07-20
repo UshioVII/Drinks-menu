@@ -3,12 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./Header.module.css";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import useModal from "../../hooks/useModal";
+import { useAuth } from "../../hooks/useAuth";
+import Button from '@mui/material/Button';
+
 
 export default function Header() {
   const { toogleModal } = useModal();
   const [h1Text, setH1Text] = useState("");
   const [h3Text, setH3Text] = useState("");
   const [showH3Text, setShowH3Text] = useState(false);
+
+  //cart
+  const { currentUser, logout } = useAuth();
 
   useEffect(() => {
     const h1OriginalText = "¡ Bienvenido a !";
@@ -41,15 +47,33 @@ export default function Header() {
     };
   }, []);
 
+   const capitalizeFirstLetter = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
+
   return (
-    <header className={`py-5 ${styles.header}`}>
+    <header className={`py-3 ${styles.header}`}>
+
       <h1>{h1Text}</h1>
+
       {showH3Text && <h3>{h3Text}</h3>}
-      <FontAwesomeIcon
-        icon={faCartShopping}
-        className={styles.cartIcon}
-        onClick={toogleModal}
-      />
+
+      {
+        currentUser && (
+          <>
+              
+              <div className="d-flex text-center align-items-baseline justify-content-end p-0 m-0">
+                <FontAwesomeIcon
+                  icon={faCartShopping}
+                  className={styles.cartIcon}
+                  onClick={toogleModal}
+                />
+                <p className="mx-2">{capitalizeFirstLetter(currentUser.name)}</p>
+                <Button className="btn btn-primary btn-sm mx-2" onClick={logout}>Cerrar sesión</Button>
+              </div>
+          </>
+        )}
+
     </header>
   );
 }

@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  
 }
 
 .modalBg .modal {
@@ -75,4 +76,10 @@
   transform: scale(1.1);
   color: white;
   background-color: rgb(73, 122, 74);
+}
+
+.modalDrinkList {
+  display: grid;
+  align-content: center;
+  justify-items: center;
 }
