@@ -13,6 +13,12 @@ html, body {
   height: 50px; /* Ajusta este valor según el tamaño de tu footer */
   background-color: #0303034b;
   text-align: center;
+  z-index: 1000;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none;
+  pointer-events: none;
 }
 
 .footer-text {

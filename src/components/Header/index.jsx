@@ -69,7 +69,7 @@ export default function Header() {
                   onClick={toogleModal}
                 />
                 <p className="mx-2">{capitalizeFirstLetter(currentUser.name)}</p>
-                <Button className="btn btn-primary btn-sm mx-2" onClick={logout}>Cerrar sesión</Button>
+                <Button className="btn btn-success text-light btn-sm mx-2" onClick={logout}>Cerrar sesión</Button>
               </div>
           </>
         )}

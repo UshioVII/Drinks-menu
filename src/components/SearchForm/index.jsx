@@ -4,6 +4,8 @@ import * as Yup from "yup";
 import { useCategories } from "../../hooks/useCategories";
 import { useDrinks } from "../../hooks/useDrinks";
 import styles from "./SarchForm.module.css"
+import Button from '@mui/material/Button';
+
 
 
 
@@ -91,13 +93,13 @@ export default function SearchForm() {
             </Row>
             <Row className="justify-content-end mt-3">
               <Col md="3">
-                <button
-                  className="btn btn-success w-100"
+                <Button
+                  className="btn bg-success text-light w-100"
                   type="submit"
                   disabled={loading}
                 >
                   {loading ? "Buscando..." : "Buscar Bebidas"}
-                </button>
+                </Button>
               </Col>
             </Row>
           </Form>

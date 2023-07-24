@@ -4,7 +4,7 @@
   text-align: center;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 1000;
 }
 
 .header h1 {
@@ -16,6 +16,14 @@
   overflow: hidden;
   white-space: nowrap;
   animation: typing 3s steps(40) both;
+  
+
+  /* El usuario no puede selccionar con el mouse en distintos exploradores */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none;
+  pointer-events: none;
 }
 
 .header .cartIcon {
@@ -28,3 +36,6 @@
   color: #198754;
 }
 
+.button{
+  color: green;
+}

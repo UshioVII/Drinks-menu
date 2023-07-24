@@ -1,6 +1,12 @@
 .drinkName,
 .drinkCategories {
   text-shadow: 0px 2px 5px black;
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+  user-select: none;
+  pointer-events: none;
 }
 
 @keyframes slideLeft {
@@ -8,17 +14,28 @@
     opacity: 0;
     transform: translateX(100%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
-.formDrinks{
+.formDrinks {
   animation: slideLeft 1s ease-in-out;
 }
 
 .error {
-  color: red!important;
+  color: red !important;
   text-shadow: 0px 2px 5px black;
+
+  /* El usuario no puede selccionar con el mouse en distintos exploradores */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+  user-select: none;
+  pointer-events: none;
 }
