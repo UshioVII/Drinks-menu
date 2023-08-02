@@ -1,0 +1,65 @@
+.card{
+  background-color: rgb(29, 29, 29)!important;
+}
+
+.drinkTitle {
+  white-space: nowrap; /* Evita que el texto se divida en múltiples líneas */
+  overflow: hidden; /* Oculta cualquier texto que desborde del contenedor */
+  text-overflow: ellipsis; /* Agrega puntos suspensivos al final del texto truncado */
+  color: white!important;
+}
+
+
+
+.cardBody {
+  flex-direction: column;
+  align-items: flex-start;
+  color: grey;
+}
+
+.drinkPrice{
+  color: white!important;
+}
+
+.recipeButton,
+.addToCartButton {
+  margin-top: 0.4rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px;
+  margin-bottom: 8px;
+  transition: all 0.5s ease;
+  color: gray;
+}
+
+
+.recipeButton:hover {
+  transform: scale(1.1);
+    color: white;
+    background-color: rgb(161, 159, 5);
+}
+
+.addToCartButton:hover {
+  transform: scale(1.1);
+  color: white;
+  background-color: rgb(73, 122, 74);
+}
+
+
+@media (min-width: 768px) {
+  .cardBody {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .recipeButton {
+    margin-right: 0.4rem;
+  }
+}
+
+
+

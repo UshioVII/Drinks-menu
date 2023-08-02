@@ -1,19 +1,18 @@
-@keyframes slideRight {
+@keyframes slideUp {
   0% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateY(100%);
   }
-
   100% {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
 .noResult {
   padding: 48px;
   margin: 48px;
-  
+
   -webkit-user-select: none;
   /* Safari */
   -moz-user-select: none;
@@ -27,7 +26,21 @@
 .noResult h1 {
   text-align: center;
   text-shadow: 0px 2px 5px black;
-  animation: slideRight 1s ease-in-out;
+  animation: slideUp 2s ease-in-out;
 }
 
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+.DrinkList {
+  margin-top: 1.25rem;
+  animation: slideDown 1.5s ease-in-out;
+}

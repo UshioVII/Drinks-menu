@@ -11,6 +11,24 @@
   font-family: "Lato", sans-serif;
 }
 
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.main Header {
+  animation: slideDown 1s ease-in-out;
+}
+
+
+
 @keyframes slideInUp {
   0% {
     opacity: 0;
@@ -22,6 +40,7 @@
   }
 }
 
-.main Header, Footer {
+
+Footer{
   animation: slideInUp 1s ease-in-out;
 }

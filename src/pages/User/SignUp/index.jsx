@@ -11,6 +11,9 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
+import styles from "./SignUp.module.css";
+
+
 
 // TODO remove, this demo shouldn't need to reset the theme.
 
@@ -32,10 +35,10 @@ export default function SignUp() {
             alignItems: 'center',
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} className={styles.avatar}>
             <LockOutlinedIcon />
           </Avatar>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h5" color="white" className={styles.titleR}>
             Registrarse
           </Typography>
 
@@ -76,17 +79,20 @@ export default function SignUp() {
               handleBlur,
               handleSubmit,
             }) => (
-              <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
+              <Box component="form" noValidate onSubmit={handleSubmit}  sx={{ mt: 3 }} className={styles.formSignUp}>
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <TextField
                       margin="normal"
-                      fullWidth
                       name="name"
                       label="Nombre"
                       type="text"
                       id="name"
+
+                      className={styles.name}
+
                       autoFocus
+                      fullWidth
                       value={values.name}
 
                       error={errors.name && touched.name}
@@ -98,33 +104,40 @@ export default function SignUp() {
                   <Grid item xs={12}>
                     <TextField
                       margin="normal"
-                      fullWidth
                       name="email"
                       label="Email"
                       type="email"
                       id="email"
-                      value={values.email}
 
+                      className={styles.email}
+
+                      fullWidth
+                      value={values.email}
                       error={errors.email && touched.email}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       helperText={errors.email && touched.email && errors.email}
+
                     />
                   </Grid>
                   <Grid item xs={12}>
                     <TextField
                       margin="normal"
-                      fullWidth
                       name="password"
                       label="Contraseña"
                       type="password"
                       id="password"
-                      value={values.password}
 
+                      className={styles.password}
+
+                      fullWidth
+                      value={values.password}
+                      
                       error={errors.password && touched.password}
                       onChange={handleChange}
                       onBlur={handleBlur}
                       helperText={errors.password && touched.password && errors.password}
+
                     />
                   </Grid>
                 </Grid>
@@ -132,11 +145,12 @@ export default function SignUp() {
                   type="submit"
                   fullWidth
                   variant="contained"
+                  className={styles.signUpButton}
                   sx={{ mt: 3, mb: 2 }}
                 >
                   Registrarse
                 </Button>
-                <Grid container justifyContent="flex-end">
+                <Grid container justifyContent="flex-end" className={styles.linkLogin}>
                   <Grid item>
                     <Link to="/login" variant="body2">
                       ¿Ya tienes una cuenta? Inicia sesión

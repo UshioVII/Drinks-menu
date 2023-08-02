@@ -11,7 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Formik } from 'formik';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../hooks/useAuth';
-
+import styles from './SignIn.module.css'
 
 
 // TODO remove, this demo shouldn't need to reset the theme.
@@ -35,11 +35,11 @@ export default function SignIn() {
         >
 
 
-          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }} className={styles.avatar}>
             <LockOutlinedIcon />
           </Avatar>
 
-          <Typography component="h1" variant="h5" color="white">
+          <Typography component="h1" variant="h5" color="white" className={styles.titleL}>
             Iniciar sesión
           </Typography>
 
@@ -85,13 +85,12 @@ export default function SignIn() {
                   type="email"
                   id="email"
 
+                  className={styles.email}
+
                   value={values.email}
-
                   error={errors.email && touched.email}
-
                   onChange={handleChange}
                   onBlur={handleBlur}
-
                   helperText={errors.email && touched.email && errors.email}
                 />
                 <TextField
@@ -101,26 +100,27 @@ export default function SignIn() {
                   label="Contraseña"
                   type="password"
                   id="password"
+
+                  className={styles.password}
+
                   autoFocus
                   value={values.password}
-
                   error={errors.password && touched.password}
                   onChange={handleChange}
                   onBlur={handleBlur}
                   helperText={errors.password && touched.password && errors.password}
                 />
 
-
-
                 <Button
                   type="submit"
-                  fullWidth
                   variant="contained"
+                  className={styles.signInButton}
+                  fullWidth
                   sx={{ mt: 3, mb: 2 }}
                 >
                   Iniciar sesión
                 </Button>
-                <Grid container>
+                <Grid container justifyContent="flex-end" className={styles.linkRegister}>
                   <Grid item>
                     <Link to="/register" variant="body2">
                       {"¿No tienes una cuenta? Regístrate"}

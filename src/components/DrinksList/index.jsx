@@ -16,7 +16,7 @@ export default function DrinkList() {
 
   return (
     
-    <Row className="mt-5">
+    <Row className={styles.DrinkList}>
       {drinks.map((drink) => (
         <DrinkCard key={drink.idDrink} drink={drink} />
       ))}

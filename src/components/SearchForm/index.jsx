@@ -45,7 +45,7 @@ export default function SearchForm() {
               )
             }
             <Row>
-              <Col md={6}>
+              <Col md={6} className={styles.drinkNameSection}>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="name" className={styles.drinkName}>Nombre Bebebida</Form.Label>
 
@@ -63,7 +63,7 @@ export default function SearchForm() {
                   />
                 </Form.Group>
               </Col>
-              <Col md={6}>
+              <Col md={6} className={styles.drinkCategoriesSection}>
                 <Form.Group className="mb-3">
                   <Form.Label htmlFor="category" className={styles.drinkCategories}>Categorías Bebidas</Form.Label>
                   <Field
@@ -91,16 +91,16 @@ export default function SearchForm() {
 
               </Col>
             </Row>
-            <Row className="justify-content-end mt-3">
+            <Row className="mt-3 mb-3 justify-content-end">
               <Col md="3">
                 <Button
-                  className="btn bg-success text-light w-100"
+                  className={`${styles.searchingDrinkButton} btn bg-success text-light w-100`}
                   type="submit"
                   disabled={loading}
                 >
                   {loading ? "Buscando..." : "Buscar Bebidas"}
                 </Button>
-              </Col>
+              </Col>  
             </Row>
           </Form>
         )

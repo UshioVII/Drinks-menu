@@ -1,5 +1,7 @@
 import { Modal, Image } from "react-bootstrap";
 import { useDrinks } from "../../hooks/useDrinks";
+import styles from "./DrinkModal.module.css"
+
 
 export default function DrinkDetailModal() {
   const { modal, handleModalClick, recipe, loading } = useDrinks();
@@ -22,15 +24,15 @@ export default function DrinkDetailModal() {
 
   return (
     !loading && (
-      <Modal show={modal} onHide={handleModalClick}>
+      <Modal show={modal} onHide={handleModalClick} >
         <Image
           src={recipe.strDrinkThumb}
           alt={`Imagen receta ${recipe.strDrink}`}
         />
-        <Modal.Header>
+        <Modal.Header  className={styles.recipeDetail}>
           <Modal.Title>{recipe.strDrink}</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body className={styles.recipeDetail}>
           <div className="p-3">
             <h2>Instrucciones</h2>
             {recipe.strInstructions}

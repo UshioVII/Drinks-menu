@@ -1,0 +1,61 @@
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.avatar {
+  animation: slideUp 0.8s ease-in-out;
+}
+
+.titleL {
+  animation: slideUp 1s ease-in-out;
+}
+
+
+.email {
+  animation: slideUp 1.4s ease-in-out;
+}
+
+.password {
+  animation: slideUp 1.6s ease-in-out;
+}
+
+.signInButton {
+  animation: slideUp 1.8s ease-in-out;
+}
+
+.linkRegister a {
+  animation: slideUp 2s ease-in-out;
+}
+
+
+
+.email label,
+.password label {
+  color: white; 
+  text-shadow: 0px 2px 5px black;
+}
+
+
+.email input,
+.password input {
+  color: white;
+  text-shadow: 0px 2px 5px black;
+}
+
+.linkRegister a{
+  color: white;
+  text-shadow: 0px 2px 5px black;
+  text-decoration: none;
+}
+
+.signInButton{
+  background-color: #198754!important;
+}
